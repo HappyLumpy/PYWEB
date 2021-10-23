@@ -1,10 +1,10 @@
 from django.urls import path
 from . import views
+from .models import Note
 
 app_name = 'note'
 urlpatterns = [
-    path('', Note.IndexView.as_view(), name='index'),
-    path('<int:pk>/', views.DetailView.as_view(), name='detail'),
-    path('<int:pk>/results/', views.ResultsView.as_view(), name='results'),
-    path('<int:question_id>/vote/', views.vote, name='vote'),
-]
+    path('', views.Notelist.as_view(), name='note-list'),
+    path('mix/', views.BlogViewMix.as_view(), name='blog-mix'),
+    path('about/',views.index, name = 'index')
+    ]

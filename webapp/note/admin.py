@@ -4,7 +4,8 @@ from .models import Note
 
 
 class NoteAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title', 'massage', 'date_add', 'public')
- 
+    list_display = ('id', 'title', 'massage', 'date_add', 'public', 'author')
+    readonly_fields = ('date_add',)
+
 
 admin.site.register(Note, NoteAdmin)
